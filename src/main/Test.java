@@ -5,6 +5,6 @@ import charactor.Hero;
 
 public class Test {
 	public static void main(String[] args) {
-		Hero hero = new Hero(2);
+		Hero hero = new Hero(4);
 	}
 }
