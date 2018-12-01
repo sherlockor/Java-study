@@ -2,12 +2,17 @@ package main;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 
 public class Test {
-	public static void main(String[] args) throws FileNotFoundException {
+	public static void main(String[] args) {
 		String pathname = "C:/Users/Administrator/Desktop/11.txt";
 		File file = new File(pathname);
-		new FileInputStream(file);
+		try {
+			FileInputStream file_stream = new FileInputStream(file);
+			byte[] all = new byte[(int)file.length()];
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
 	}
 }
