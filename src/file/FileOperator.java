@@ -3,6 +3,7 @@ package file;
 import java.io.File;
 
 public class FileOperator {
+	//常见文件夹
 	public boolean CreateFolder(String folder_path, boolean is_absolute) {
 		File file = new File(folder_path);
 		if (file.isFile()) {
@@ -19,7 +20,7 @@ public class FileOperator {
 		}
 		return b_status;
 	}
-	
+	//遍历文件夹
 	public void TraverseFolder(String folder) {
 		File file = new File(folder);
 		if (!file.exists()) {
