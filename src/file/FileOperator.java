@@ -39,10 +39,13 @@ public class FileOperator {
 			file.delete();
 		} else if (file.isDirectory()) {
 			File[] all_file = file.listFiles();
-			for(int index = 0; index < all_file.length; index++) {
-				File current_file = all_file[index];
+			for(File current_file : all_file) {
 				Delete(current_file.getAbsolutePath());
 			}
+			/*for(int index = 0; index < all_file.length; index++) {
+				File current_file = all_file[index];
+				Delete(current_file.getAbsolutePath());
+			}*/
 		}
 		file.delete();
 	}

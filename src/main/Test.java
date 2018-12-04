@@ -1,16 +1,18 @@
 package main;
 
 import java.io.IOException;
-
-
-
 import file.FileOperator;
+import thread.*;
 
 public class Test {
 	public static void main(String[] args) throws IOException {
-		String path = "E:\\MyCode\\Java\\111";
+		MyThread1 my_thread = new MyThread1();
+		//my_thread.start();
 		
-		FileOperator file_operator = new FileOperator();
-		file_operator.Delete(path);
+		MyThread2 my_thread2 = new MyThread2();
+		Thread thread = new Thread(my_thread2);
+		thread.start();
+		
+		System.out.println("Finished");
 	}
 }
