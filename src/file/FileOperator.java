@@ -1,13 +1,12 @@
 package file;
 
 import java.io.File;
-import java.io.FileFilter;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 
 public class FileOperator {
 	//常见文件夹
@@ -38,7 +37,6 @@ public class FileOperator {
 			return;
 		}
 		
-		
 		File[] all_files = file.listFiles();
 		for(int index = 0; index < all_files.length; index++) {
 			File current_file = all_files[index];
@@ -50,7 +48,7 @@ public class FileOperator {
 		}
 	}
 	//读文件
-	public void ReadFileContent(String file_name) throws IOException {
+	public void ReadFileContent(String file_name) {
 		File file = new File(file_name);
 		if(!file.exists()) {
 			System.out.printf("[%s] is not exist", file_name);
@@ -60,11 +58,43 @@ public class FileOperator {
 			System.out.printf("[%s] is not file", file_name);
 			return;
 		}
-		BufferedReader buffered_reader = (new InputStreamReader(new FileInputStream(file), "gbk")); 
-		String line_content = null;
-		do {
-			line_content = buffered_reader.readLine();
-			System.out.println(line_content);
-		} while(line_content.length() != 0);
+		
+		try {
+			FileReader file_reader = new FileReader(file);
+			BufferedReader buffered_reader = new BufferedReader(file_reader);
+			
+			String line_content = null;
+			do {
+				line_content = buffered_reader.readLine();
+				if (line_content != null) {
+					System.out.println(line_content);
+				}
+			} while (line_content != null);
+			
+			buffered_reader.close();
+			file_reader.close();
+		} catch (IOException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
+	//写文件
+	public void WriteFileContent(String file_name, String write_content) {
+		try {
+			File file = new File(file_name);
+			FileWriter file_writer = new FileWriter(file, true);//true表示追加
+			BufferedWriter buffered_writer = new BufferedWriter(file_writer);
+			PrintWriter out = new PrintWriter(buffered_writer);
+			
+			out.append(write_content);
+			out.println();
+			out.flush();
+			out.close();
+			System.out.println("Finish write.");
+		} catch (IOException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		
 	}
 }
