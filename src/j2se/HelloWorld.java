@@ -5,6 +5,5 @@ public class HelloWorld {
 		System.out.println("Hello World");
 		final Test t;
 		t = new Test();
-		t = new Test();
 	}
 }

@@ -5,11 +5,12 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Scanner;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 
 public class FileOperator {
-	//常见文件夹
+	//创建文件夹
 	public boolean CreateFolder(String folder_path, boolean is_absolute) {
 		File file = new File(folder_path);
 		if (file.isFile()) {
@@ -25,6 +26,25 @@ public class FileOperator {
 			b_status = file.mkdir();
 		}
 		return b_status;
+	}
+	//删除
+	public void Delete(String path) {
+		File file = new File(path);
+		if(!file.exists()) {
+			System.out.printf("[%s] is not exist", path);
+			return;
+		}
+		
+		if(file.isFile()) {
+			file.delete();
+		} else if (file.isDirectory()) {
+			File[] all_file = file.listFiles();
+			for(int index = 0; index < all_file.length; index++) {
+				File current_file = all_file[index];
+				Delete(current_file.getAbsolutePath());
+			}
+		}
+		file.delete();
 	}
 	//遍历文件夹
 	public void TraverseFolder(String folder) {
@@ -88,7 +108,7 @@ public class FileOperator {
 			
 			out.append(write_content);
 			out.println();
-			out.flush();
+			out.flush();//刷新缓存流，将数据立即写入，而不是等到缓存存满了再写入
 			out.close();
 			System.out.println("Finish write.");
 		} catch (IOException e) {
@@ -97,4 +117,22 @@ public class FileOperator {
 		}
 		
 	}
+	//console输入
+	public void ConsoleInput() {
+		System.out.println("Please put in:");
+		Scanner scanner = new Scanner(System.in);
+		
+		String input_str = null;
+		do {
+			input_str = scanner.nextLine();
+			if(input_str != null) {
+				System.out.println(input_str);
+				if (input_str.equals("end")) {
+					break;
+				}
+			} 
+		} while (input_str != null);
+		System.out.println("Console end.");
+	}
+
 }
