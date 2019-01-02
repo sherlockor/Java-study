@@ -1,17 +1,10 @@
 package main;
 
-import java.sql.SQLException;
-import database.DatabaseTest;
+import log.TestLog;
 
 public class Test {
-	public static void main(String[] args) throws SQLException {
-		DatabaseTest database_test = new DatabaseTest();
-		//database_test.CreateTable();
-		database_test.InsertData();
-		//database_test.DeleteData();
-		database_test.SearchData2();
-		database_test.Disconnect();
-		
+	public static void main(String[] args) throws InterruptedException {
+		TestLog test_log = new TestLog();
 		System.out.println("Finished");
 	}
 }
