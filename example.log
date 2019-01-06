@@ -1,5 +1,0 @@
-DEBUG main log.TestLog - 调试信息
-INFO main log.TestLog - 输出信息
-WARN main log.TestLog - 警告信息
-ERROR main log.TestLog - 错误信息
-FATAL main log.TestLog - 致命信息
