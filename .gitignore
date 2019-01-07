@@ -1,5 +1,7 @@
 /bin/
+
 /.metadata/
+
 /.recommenders/
 
 /tomcat_8080/
