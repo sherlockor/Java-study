@@ -26,6 +26,8 @@ public class FirstFilter implements Filter{
 			FilterChain chain)
 			throws IOException, ServletException {
 		// TODO Auto-generated method stub
+		System.out.println("First filter doFilter()");
+		
 		HttpServletRequest request = (HttpServletRequest)req;
 		HttpServletResponse response = (HttpServletResponse)res;
 		
@@ -41,7 +43,7 @@ public class FirstFilter implements Filter{
 	@Override
 	public void init(FilterConfig arg0) throws ServletException {
 		// TODO Auto-generated method stub
-		System.out.println("Filter init");
+		System.out.println("First filter init");
 	}
 
 }
