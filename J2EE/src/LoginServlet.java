@@ -16,9 +16,17 @@ public class LoginServlet extends HttpServlet {
 		
 		String name = request.getParameter("name");
 		String password = request.getParameter("password");
-		System.out.println(name);
-		System.out.println(password);
+		System.out.println("param name:" + name);
+		System.out.println("param password:" + password);
 		
+		String userName = (String) request.getSession().getAttribute("userName");
+		System.out.println("session: " + userName);
+		if (name.equals(userName)) {
+			System.out.println("skip");
+			response.sendRedirect("success.html");
+			return;
+		}
+		System.out.println("11111");
 		//服务端页面跳转,在服务端访问文件,并把文件内容发给浏览器
 		/*if (name.equals("admin") && password.equals("123")) {
 			System.out.println("Pass");
@@ -30,6 +38,7 @@ public class LoginServlet extends HttpServlet {
 		//客户端跳转
 		if (name.equals("admin") && password.equals("123")) {
 			System.out.println("Pass");
+			request.getSession().setAttribute("userName", name);
 			response.sendRedirect("success.html");
 		} else {
 			System.out.println("Fail");
