@@ -15,14 +15,14 @@ public class TestHibernate {
 		Session s = sf.openSession();
 		s.beginTransaction();
 
-		//Product p = new Product();
-		//p.setName("iphone8");
-		//p.setPrice(8000);
-		//s.save(p);
+		Product p = new Product();
+		p.setName("iphone8");
+		p.setPrice(8000);
+		s.save(p);
 		
-		Category category = new Category();
-		category.setName("分类1");
-		s.save(category);
+		//Category category = new Category();
+		//category.setName("分类1");
+		//s.save(category);
 		
 		s.getTransaction().commit();
 		s.close();
