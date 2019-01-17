@@ -5,7 +5,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 import com.how2java.pojo.Product;
-import com.how2java.pojo.Category;
 
 public class TestHibernate {
 	public static void main(String[] args) {
@@ -15,14 +14,12 @@ public class TestHibernate {
 		Session s = sf.openSession();
 		s.beginTransaction();
 
-		Product p = new Product();
-		p.setName("iphone8");
-		p.setPrice(8000);
-		s.save(p);
-		
-		//Category category = new Category();
-		//category.setName("·ÖÀà1");
-		//s.save(category);
+		for(int index = 0; index < 10; index++) {
+			Product p = new Product();
+			p.setName("iphone" + index);
+			p.setPrice(index);
+			s.save(p);
+		}
 		
 		s.getTransaction().commit();
 		s.close();
