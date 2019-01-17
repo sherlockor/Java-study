@@ -5,6 +5,7 @@
 /.recommenders/
 
 /tomcat_8080/
+/tomcat7-8080-eclipse/
 /hibernate/lib/
 /hibernate/bin/
 *.rar
