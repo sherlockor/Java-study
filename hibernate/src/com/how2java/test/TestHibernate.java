@@ -9,6 +9,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.Restrictions;
 
+import com.how2java.pojo.Category;
 import com.how2java.pojo.Product;
 
 public class TestHibernate {
@@ -51,16 +52,24 @@ public class TestHibernate {
 //		}
 		
 		//sql
-		String name = "iphone";
-		String sql = "select * from product_ p where p.name like '%" + name + "%'";
-		Query query = s.createSQLQuery(sql);
-		List<Object[]> list = query.list();
-		for(Object[] osObjects : list) {
-			for(Object filedObject : osObjects ) {
-				System.out.print(filedObject + "\t");
-			}
-			System.out.println();
-		}
+//		String name = "iphone";
+//		String sql = "select * from product_ p where p.name like '%" + name + "%'";
+//		Query query = s.createSQLQuery(sql);
+//		List<Object[]> list = query.list();
+//		for(Object[] osObjects : list) {
+//			for(Object filedObject : osObjects ) {
+//				System.out.print(filedObject + "\t");
+//			}
+//			System.out.println();
+//		}
+		
+		Category category = new Category();
+		category.setName("c1");
+		s.save(category);
+		
+		Product product = (Product)s.get(Product.class, 8);
+		product.setCategory(category);
+		s.update(product);
 		
 		s.getTransaction().commit();
 		s.close();
