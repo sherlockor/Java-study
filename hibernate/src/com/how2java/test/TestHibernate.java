@@ -1,6 +1,8 @@
 package com.how2java.test;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.hibernate.Criteria;
 import org.hibernate.Query;
@@ -11,6 +13,7 @@ import org.hibernate.criterion.Restrictions;
 
 import com.how2java.pojo.Category;
 import com.how2java.pojo.Product;
+import com.how2java.pojo.User;
 
 public class TestHibernate {
 	public static void main(String[] args) {
@@ -63,7 +66,7 @@ public class TestHibernate {
 //			System.out.println();
 //		}
 		
-		//一个category可以对应多个product
+		//多个product可以包含同一个category
 //		Category category = new Category();
 //		category.setName("c1");
 //		s.save(category);
@@ -72,6 +75,26 @@ public class TestHibernate {
 //		Product product2 = (Product)s.get(Product.class, 7);
 //		product2.setCategory(category);
 //		s.update(product);
+		
+		//通过category获取包含之的product
+//		Category category = (Category)s.get(Category.class, 2);
+//		Set<Product> pSet = category.getProducts();
+//		for(Product product : pSet) {
+//			System.out.println(product.getName());
+//		}
+		//增加3个用户
+        Set<User> users = new HashSet();
+        for (int i = 0; i < 3; i++) {
+            User u =new User();
+            u.setName("user"+i);
+            users.add(u);
+            s.save(u);
+        }
+          
+        //产品3被用户1,2,3购买
+        Product p1 = (Product) s.get(Product.class, 3);
+        p1.setUsers(users);
+        s.save(p1);
 		
 		s.getTransaction().commit();
 		s.close();
