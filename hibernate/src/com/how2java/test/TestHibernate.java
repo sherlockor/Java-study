@@ -63,13 +63,15 @@ public class TestHibernate {
 //			System.out.println();
 //		}
 		
-		Category category = new Category();
-		category.setName("c1");
-		s.save(category);
-		
-		Product product = (Product)s.get(Product.class, 8);
-		product.setCategory(category);
-		s.update(product);
+		//一个category可以对应多个product
+//		Category category = new Category();
+//		category.setName("c1");
+//		s.save(category);
+//		Product product = (Product)s.get(Product.class, 8);
+//		product.setCategory(category);
+//		Product product2 = (Product)s.get(Product.class, 7);
+//		product2.setCategory(category);
+//		s.update(product);
 		
 		s.getTransaction().commit();
 		s.close();
