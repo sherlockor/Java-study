@@ -14,5 +14,6 @@ public class TestSpring {
 		Category c = (Category) context.getBean("c");
 		
 		System.out.println(c.getName());
+		System.out.println(c.getId());
 	}
 }
