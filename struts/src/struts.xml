@@ -2,19 +2,21 @@
 <!DOCTYPE struts PUBLIC
     "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
     "http://struts.apache.org/dtds/struts-2.0.dtd">
-
+ 
 <struts>
-	<package name="basicstruts" extends="struts-default">
-
-		<action name="showProduct" class="com.how2java.action.ProductAction"
-			method="show">
-			<result name="show">show.jsp</result>
-		</action>
-		<action name="addProduct" class="com.how2java.action.ProductAction"
-			method="add">
-			<result name="show">show.jsp</result>
-		</action>
-
-	</package>
-
+  <constant name="struts.i18n.encoding" value="UTF-8"></constant>
+  <package name="basicstruts" extends="struts-default">
+ 
+  <action name="showProduct" class="com.how2java.action.ProductAction" method="show">
+    <result name="show">show.jsp</result>
+  </action>  
+  <action name="addProduct" class="com.how2java.action.ProductAction" method="add">
+    <result name="show">show.jsp</result>
+  </action>
+  <action name="age" class="com.how2java.action.ProductAction" method="age">
+  	<result name="show">show.jsp</result>
+  </action>  
+ 
+</package>
+ 
 </struts>

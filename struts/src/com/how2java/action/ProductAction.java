@@ -10,9 +10,12 @@ public class ProductAction {
 		product.setName("iphone7");
 		return "show";
 	}
-
-	public String add() {
-		System.out.println("product.name:" + product.getName());
+	public String add(){
+        System.out.println("product.name:"+product.getName());
+        return "show";
+    }
+	public String age() {
+		System.out.println("product.name:"+product.getAge());
 		return "show";
 	}
 
