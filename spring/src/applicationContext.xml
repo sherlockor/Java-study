@@ -18,5 +18,10 @@
         <property name="name" value="category 123" />
         <property name="id" value="191"></property>
     </bean>
+    <bean name="p" class="com.how2java.pojo.Product">
+    	<property name="id" value="999"/>
+    	<property name="name" value="productTest"/>
+    	<property name="price" value="888"/>
+    </bean>
  
 </beans>
