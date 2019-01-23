@@ -20,8 +20,9 @@
     </bean>
     <bean name="p" class="com.how2java.pojo.Product">
     	<property name="id" value="999"/>
-    	<property name="name" value="productTest"/>
-    	<property name="price" value="888"/>
+    	<property name="name" value="product"/>
+    	<property name="price" value="9.99"/>
+    	<property name="category" ref="c"/>
     </bean>
  
 </beans>
