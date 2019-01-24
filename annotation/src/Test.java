@@ -1,4 +1,5 @@
 
+@MyAnnotation
 public class Test {
 	
 	public void out()
