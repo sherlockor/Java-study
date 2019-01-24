@@ -14,6 +14,7 @@
    http://www.springframework.org/schema/context      
    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
  
+ 	<!-- <context:annotation-config/>
     <bean name="c" class="com.how2java.pojo.Category">
         <property name="name" value="category 123" />
         <property name="id" value="191"></property>
@@ -23,6 +24,25 @@
     	<property name="name" value="product"/>
     	<property name="price" value="9.99"/>
     	<property name="category" ref="c"/>
-    </bean>
+    </bean> -->
+    
+    <!-- 切面 -->
+    <!-- <bean name="s" class="com.how2java.service.ProductService">
+    </bean>    
+    
+    <bean id="loggerAspect" class="com.how2java.aspect.LoggerAspect"/>
+    
+	<aop:config>
+		<aop:pointcut id="loggerCutpoint" 
+			expression=
+			"execution(* com.how2java.service.ProductService.*(..)) "/>
+			
+		<aop:aspect id="logAspect" ref="loggerAspect">
+			<aop:around pointcut-ref="loggerCutpoint" method="log"/>
+		</aop:aspect>
+	</aop:config>	 -->
+	<context:component-scan base-package="com.how2java.aspect"/>
+ 	<context:component-scan base-package="com.how2java.service"/>
+ 	<aop:aspectj-autoproxy/>
  
 </beans>
