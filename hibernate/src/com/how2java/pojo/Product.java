@@ -10,10 +10,10 @@ public class Product {
     Set<User> users;
     
     public Category getCategory() {
-    	return this.category;
+        return this.category;
     }
     public void setCategory(Category category) {
-    	this.category = category;
+        this.category = category;
     }
     
     public int getId() {
@@ -35,9 +35,9 @@ public class Product {
         this.price = price;
     }
     public Set<User> getUsers(){
-    	return users;
+        return users;
     }
     public void setUsers(Set<User> users) {
-    	this.users = users;
+        this.users = users;
     }
 }

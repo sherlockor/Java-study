@@ -18,67 +18,83 @@ import com.how2java.pojo.User;
 public class TestHibernate {
 	public static void main(String[] args) {
 
-		SessionFactory sf = new Configuration().configure().buildSessionFactory();
+		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 
-		Session s = sf.openSession();
-		s.beginTransaction();
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
 		
 		for(int index = 0; index < 10; index++) {
 			Product p = new Product();
 			p.setName("iphone" + index);
 			p.setPrice(index);
-			s.save(p);
+			session.save(p);
 		}
 		
-		/*
-		 * Product p = (Product)s.get(Product.class, 5);
-		 * System.out.println("id=6的产品名称是：" + p.getName()); p.setName(p.getName() +
-		 * "-modified"); s.update(p); s.delete(p);
-		 */
+		
+		 Product p = (Product)session.get(Product.class, 5);
+		 System.out.println("id=6的产品名称是：" + p.getName()); 
+		 p.setName(p.getName() + "-modified"); 
+		 session.update(p); 
+		 session.delete(p);
+		 
 		
 		//hql语句查询
-		/*
-		 * String name = "iphone"; Query q =
-		 * s.createQuery("from Product p where p.name like ?"); q.setString(0, "%" +
-		 * name + "%"); List<Product> psList = q.list(); for(Product product : psList) {
-		 * System.out.println(product.getName() + "   " + product.getPrice()); }
-		 */
+		
+		  String name = "iphone"; 
+		  Query query = session.createQuery("from Product p where p.name like ?"); 
+		  query.setString(0, "%" + name + "%"); 
+		  List<Product> psList = query.list(); 
+		  for(Product product : psList) {
+		      System.out.println(product.getName() + "   " + product.getPrice()); 
+		  }
+		 
 		
 		//criteria查询
-		/*
-		 * String name = "iphone"; Criteria criteria = s.createCriteria(Product.class);
-		 * criteria.add(Restrictions.like("name", "%" + name + "%")); List<Product>
-		 * psList = criteria.list(); for(Product product : psList) {
-		 * System.out.println(product.getName() + "   " + product.getPrice()); }
-		 */
+		
+		  String name = "iphone"; 
+		  Criteria criteria = session.createCriteria(Product.class);
+		  criteria.add(Restrictions.like("name", "%" + name + "%")); 
+		  List<Product> psList = criteria.list(); 
+		  for(Product product : psList) {
+		      System.out.println(product.getName() + "   " + product.getPrice()); 
+		  }
+		 
 		
 		//sql
-		/*
-		 * String name = "iphone"; String sql =
-		 * "select * from product_ p where p.name like '%" + name + "%'"; Query query =
-		 * s.createSQLQuery(sql); List<Object[]> list = query.list(); for(Object[]
-		 * osObjects : list) { for(Object filedObject : osObjects ) {
-		 * System.out.print(filedObject + "\t"); } System.out.println(); }
-		 */
+		
+		  String name = "iphone"; 
+		  String sql = "select * from product_ p where p.name like '%" + name + "%'"; 
+		  Query query = session.createSQLQuery(sql); 
+		  List<Object[]> list = query.list(); 
+		  for(Object[] osObjects : list) { 
+		      for(Object filedObject : osObjects ) {
+		          System.out.print(filedObject + "\t"); 
+		      } 
+		      System.out.println(); 
+		  }
+		 
 		
 		//多个product可以包含同一个category
 		
-//		  Category category = new Category(); category.setName("c1"); 
-//		  s.save(category);
-//		  Product product = (Product)s.get(Product.class, 8);
-//		  product.setCategory(category); 
-//		  Product product2 = (Product)s.get(Product.class, 7); 
-//		  product2.setCategory(category);
-//		  s.update(product);
+		  Category category = new Category(); 
+		  category.setName("c1"); 
+		  session.save(category);
+		  Product product = (Product)session.get(Product.class, 8);
+		  product.setCategory(category); 
+		  Product product2 = (Product)session.get(Product.class, 7); 
+		  product2.setCategory(category);
+		  session.update(product);
 		 
 		
 		//通过category获取包含之的product
 		
-//		  Category category = (Category)s.get(Category.class, 2); 
-//		  Set<Product> pSet = category.getProducts(); 
-//		  for(Product product : pSet) {
-//			  System.out.println(product.getName());
-//		  }
+        
+//          Category category = (Category)session.get(Category.class, 2); 
+//          Set<Product> pSet = category.getProducts(); 
+//          for(Product product : pSet) {
+//              System.out.println(product.getName()); 
+//          }
+         
 		 
 		
 		 //增加3个用户
@@ -87,19 +103,19 @@ public class TestHibernate {
 			 User u =new User(); 
 			 u.setName("user"+i); 
 			 users.add(u); 
-			 s.save(u); 
+			 session.save(u); 
 		 }
 		 
           
          //产品3被用户1,2,3购买
-		 Product p1 = (Product) s.get(Product.class, 3); 
+		 Product p1 = (Product) session.get(Product.class, 3); 
 		 p1.setUsers(users);
-		 s.save(p1);
+		 session.save(p1);
 		 
 		
-		s.getTransaction().commit();
-		s.close();
-		sf.close();
+		session.getTransaction().commit();
+		session.close();
+		sessionFactory.close();
 	}
 
 }
