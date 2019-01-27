@@ -20,7 +20,7 @@ public class ProductAction extends ActionSupport {
 		
 		product = new Product();
 		product.setName("iphone7");
-		return "show";
+		return "show1";
 	}
 	public String add(){
         System.out.println("product.name:"+product.getName());

@@ -2,4 +2,3 @@
  pageEncoding="UTF-8" isELIgnored="false"%>
 <%@page isELIgnored="false"%>
 ${product.name}
-${product.age}

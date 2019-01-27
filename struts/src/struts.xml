@@ -7,8 +7,9 @@
   <constant name="struts.i18n.encoding" value="UTF-8"></constant>
   <package name="basicstruts" extends="struts-default">
  
-  <action name="showProduct" class="com.how2java.action.ProductAction" method="show">
+  <action name="showProduct" >
     <result name="show">show.jsp</result>
+    <result name="show1">index.jsp</result>
   </action>  
   <action name="addProduct" class="com.how2java.action.ProductAction" method="add">
     <result name="show">show.jsp</result>
