@@ -27,7 +27,7 @@ public class TestSpring {
         System.out.println(product.getCategory().getName());
 		 
 		
-//		ProductService productService = (ProductService)context.getBean("s");
-//		productService.doSomeService();
+		ProductService productService = (ProductService)context.getBean("s");
+		productService.doSomeService();
 	}
 }
