@@ -13,19 +13,21 @@ public class TestSpring {
 		ApplicationContext context = new ClassPathXmlApplicationContext(
 				new String[] { "applicationContext.xml" });
 
-		/*
-		 * Category c = (Category) context.getBean("c");
-		 * 
-		 * System.out.println(c.getName()); System.out.println(c.getId());
-		 * 
-		 * Product product = (Product) context.getBean("p");
-		 * 
-		 * System.out.println(product.getId()); System.out.println(product.getName());
-		 * System.out.println(product.getPrice());
-		 * System.out.println(product.getCategory().getName());
-		 */
 		
-		ProductService productService = (ProductService)context.getBean("s");
-		productService.doSomeService();
+        Category c = (Category) context.getBean("c");
+
+        System.out.println(c.getName());
+        System.out.println(c.getId());
+
+        Product product = (Product) context.getBean("p");
+
+        System.out.println(product.getId());
+        System.out.println(product.getName());
+        System.out.println(product.getPrice());
+        System.out.println(product.getCategory().getName());
+		 
+		
+//		ProductService productService = (ProductService)context.getBean("s");
+//		productService.doSomeService();
 	}
 }

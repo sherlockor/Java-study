@@ -14,17 +14,18 @@
    http://www.springframework.org/schema/context      
    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
  
- 	<!-- <context:annotation-config/>
+    <!-- <context:component-scan base-package="com.xrq" /> -->
+ 	<context:annotation-config/>
     <bean name="c" class="com.how2java.pojo.Category">
-        <property name="name" value="category 123" />
+        <property name="name" value="category 12323" />
         <property name="id" value="191"></property>
     </bean>
     <bean name="p" class="com.how2java.pojo.Product">
     	<property name="id" value="999"/>
     	<property name="name" value="product"/>
     	<property name="price" value="9.99"/>
-    	<property name="category" ref="c"/>
-    </bean> -->
+    	<!-- <property name="category" ref="c"/> -->
+    </bean>
     
     <!-- 切面 -->
     <!-- <bean name="s" class="com.how2java.service.ProductService">

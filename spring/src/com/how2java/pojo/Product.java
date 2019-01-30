@@ -5,13 +5,13 @@ import javax.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-@Component("p")
+//@Component("p")
 public class Product {
 	private int id = 999;
 	private String name = "produce test";
 	private float price = 888.88f;
 	//@Autowired
-	@Resource(name="c")
+	//@Resource(name="c")
 	private Category category;
 	
 	public int getId() {
@@ -31,6 +31,7 @@ public class Product {
 	public float getPrice() {
 		return price;
 	}
+	
 	public void setPrice(float price) {
 		this.price = price;
 	}
@@ -39,6 +40,7 @@ public class Product {
 		return category;
 	}
 	//@Autowired
+	@Resource(name="c")
 	public void setCategory(Category category) {
 		this.category = category;
 	}
