@@ -10,8 +10,7 @@ import com.how2java.service.ProductService;
 public class TestSpring {
 
 	public static void main(String[] args) {
-		ApplicationContext context = new ClassPathXmlApplicationContext(
-				new String[] { "applicationContext.xml" });
+		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 
 		
         Category c = (Category) context.getBean("c");
