@@ -8,7 +8,7 @@
 		<!-- database connection settings -->
 		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
 		<property name="connection.url">
-			jdbc:mysql://localhost:3306/hibernate_struct?characterEncoding=utf-8
+			jdbc:mysql://localhost:3306/hibernate_struct?characterEncoding=UTF-8
 		</property>
 		<property name="connection.username">root</property>
 		<property name="connection.password"></property>
@@ -17,6 +17,6 @@
 		<property name="current_session_context_class">thread</property>
 		<property name="show_sql">true</property>
 		<property name="hbm2ddl.auto">update</property>
-		<mapping resource="com/how2java/pojo/Product.hom.xml"/>
+		<mapping resource="com/how2java/pojo/Product.hbm.xml"/>
 	</session-factory>
 </hibernate-configuration>

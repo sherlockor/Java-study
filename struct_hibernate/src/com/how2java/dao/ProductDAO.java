@@ -9,6 +9,19 @@ import org.hibernate.classic.Session;
 import com.how2java.pojo.Product;
 
 public class ProductDAO {
+    public static void main(String[] args) {
+        System.out.println("start");
+        
+        Product product = new Product();
+        product.setName("unit test");
+        product.setPrice(12345);
+        
+        ProductDAO productDAO = new ProductDAO();
+        productDAO.addProduct(product);
+        
+        System.out.println("end");
+    }
+    
     /*
      * @brief Ôö
      */
@@ -38,9 +51,9 @@ public class ProductDAO {
         sessionFactory.close();
     }
     
-    public List<Product> queryProducts(){
-        
-    }
+//    public List<Product> queryProducts(){
+//        
+//    }
     
     
     
