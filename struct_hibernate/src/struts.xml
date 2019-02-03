@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+ 
+<struts>
+    <constant name="struts.i18n.encoding" value="UTF-8"></constant>
+    <package name="basicstruts" extends="struts-default">
+        <action name="index" class="com.how2java.action.ProductAction" method="showIndex">
+            <result name="index">index.html</result>
+        </action>
+        <action name="submitInfo" class="com.how2java.action.ProductAction" method="submitInfo">
+            <result name="index">index.html</result>
+        </action>
+    </package>
+ 
+</struts>

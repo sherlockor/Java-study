@@ -10,17 +10,17 @@
     </style>
 </head>
 <body>
-    <form action="search" method="get">
+    <form action="submitInfo" method="post">
         <label>Name:
-            <input type="text">
+            <input type="text" name="product.name">
         </label>
         <label>
             Price Lower Limit:
-            <input type="number">
+            <input type="number" name="product.lowerLimit">
         </label>
         <label>
             Price Upper Limit:
-            <input type="number">
+            <input type="number" name="product.upperLimit">
         </label>
         <input type="submit" value="提交">
     </form>
