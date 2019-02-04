@@ -4,6 +4,8 @@ public class Product {
 	private int id;
 	private String name;
 	private float price;
+	private float lowerLimit;
+	private float upperLimit;
 	
 	public int getId() {
 		return id;
@@ -24,5 +26,17 @@ public class Product {
 	}
 	public void setPrice(float price) {
 		this.price = price;
+	}
+	public float getLowerLimit() {
+	    return lowerLimit;
+	}
+	public void setLowerLimit(float lowerLimit) {
+	    this.lowerLimit = lowerLimit;
+	}
+	public float getUpperLimit() {
+	    return upperLimit;
+	}
+	public void setUpperLimit(float upperLimit) {
+	    this.upperLimit = upperLimit;
 	}
 }
