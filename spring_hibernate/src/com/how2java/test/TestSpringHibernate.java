@@ -3,6 +3,7 @@ package com.how2java.test;
 import java.util.List;
 
 import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Restrictions;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -59,7 +60,7 @@ public class TestSpringHibernate {
             System.out.println(category.getName());
         }
     }
-    @Test
+    //@Test
     public void testCount() {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
         CategoryDao categoryDao = (CategoryDao) applicationContext.getBean("categoryDao");
@@ -67,5 +68,23 @@ public class TestSpringHibernate {
         List<Long> counts = categoryDao.find("select count(*) from Category c");
         long count = counts.get(0);
         System.out.println(count);
+    }
+    @Test
+    public void fuzzyQuery() {
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
+        CategoryDao categoryDao = (CategoryDao) applicationContext.getBean("categoryDao");
+        //使用HQL进行模糊查询
+        List<Category> categories = categoryDao.find("from Category c where c.name like ?", "%10%");
+        for (Category category : categories) {
+            System.out.println(category.getName());
+        }
+        System.out.println("---------------------------------------------------------------------------");
+        //使用criteria进行模糊查询
+        DetachedCriteria detachedCriteria = DetachedCriteria.forClass(Category.class);
+        detachedCriteria.add(Restrictions.like("name", "%10%"));
+        categories = categoryDao.findByCriteria(detachedCriteria);
+        for (Category category : categories) {
+            System.out.println(category.getName());
+        }
     }
 }
