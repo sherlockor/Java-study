@@ -8,7 +8,6 @@
     <constant name="struts.objectFactory" value="spring"/>
     <package name="basicstruts" namespace="/" extends="struts-default">
         <action name="listProduct" class="productActionBean" method="list">
-            <result name="listJsp">list.jsp</result>
             <result name="pass">pass.html</result>
         </action>
     </package>

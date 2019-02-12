@@ -14,7 +14,7 @@
    http://www.springframework.org/schema/context      
    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-    <bean name="productActionBean" class="com.how2java.action.ProductAction">
+    <bean name="productActionBean" scope="prototype" class="com.how2java.action.ProductAction">
         <property name="productService" ref="productServiceImpl"/>
     </bean>
     <bean name="productServiceImpl" class="com.how2java.service.impl.ProductServiceImpl">

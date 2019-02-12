@@ -8,7 +8,6 @@ import com.how2java.dao.ProductDAO;
 import com.how2java.pojo.Product;
 
 public class ProductDAOImpl extends HibernateTemplate implements ProductDAO {
-
     @Override
     public List<Product> list() {
         // TODO Auto-generated method stub
@@ -20,5 +19,4 @@ public class ProductDAOImpl extends HibernateTemplate implements ProductDAO {
         // TODO Auto-generated method stub
         save(product);
     }
-
 }

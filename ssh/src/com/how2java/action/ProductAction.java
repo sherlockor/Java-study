@@ -11,8 +11,9 @@ public class ProductAction {
     
     public String list() {
         System.out.println("function list()");
+        System.out.println(this);
         products = productService.list();
-        return "listJsp";
+        return "pass";
     }
     
     public ProductService getProductService() {
