@@ -19,7 +19,15 @@
     <update id="updateCategory" parameterType="Category">
         update category_ set name=#{name} where id=#{id}
     </update>
-    <select id="selectByName" resultType="Category">
-        select * from category_ where name like '%#{name}%'
+    <select id="selectByName" parameterType="string" resultType="Category">
+        select * from category_ where name like concat('%',#{0},'%')
     </select>
+    <select id="selectByIdAndName" parameterType="map" resultType="Category">
+        select * from category_ where id > #{id} and name like concat('%', #{name}, '%')
+    </select>
+    
+    <resultMap type="Category" id="categoryBean">
+        <id column="cid" property="id"/>
+        <result column="cname" property="name"/>
+    </resultMap>
 </mapper>

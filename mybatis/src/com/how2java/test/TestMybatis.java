@@ -2,7 +2,9 @@ package com.how2java.test;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -64,7 +66,7 @@ public class TestMybatis {
         sqlSession.commit();
         sqlSession.close();
     }
-    @Test
+    //@Test
     public void testSelectCategory() throws IOException {
         InputStream inputStream = Resources.getResourceAsStream(resource);
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
@@ -93,6 +95,22 @@ public class TestMybatis {
         sqlSession.update("updateCategory", category);
         
         sqlSession.commit();
+        sqlSession.close();
+    }
+    @Test
+    public void testVagueSelectCategory() throws IOException {
+        InputStream inputStream = Resources.getResourceAsStream(resource);
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        
+        Map<String, Object> paramsMap = new HashMap<>();
+        paramsMap.put("id", 0);
+        paramsMap.put("name", "c");
+        List<Category> categories = sqlSession.selectList("selectByIdAndName", paramsMap);
+        
+        for (Category category2 : categories) {
+            System.out.println("select by id and name:" + category2.getName());
+        }
         sqlSession.close();
     }
 }
