@@ -97,7 +97,7 @@ public class TestMybatis {
         sqlSession.commit();
         sqlSession.close();
     }
-    @Test
+    //@Test
     public void testVagueSelectCategory() throws IOException {
         InputStream inputStream = Resources.getResourceAsStream(resource);
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
@@ -111,6 +111,24 @@ public class TestMybatis {
         for (Category category2 : categories) {
             System.out.println("select by id and name:" + category2.getName());
         }
+        sqlSession.close();
+    }
+    @Test
+    public void  testOne2Many() throws IOException {
+        InputStream inputStream = Resources.getResourceAsStream(resource);
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        
+        List<Category> categories = sqlSession.selectList("one2ManyListCategory");
+        for (Category category : categories) {
+            System.out.println(category.getName());
+            List<Product> products = category.getProducts();
+            for (Product product : products) {
+                System.out.println(product.getName());
+            }
+            System.out.println("----------------------------");
+        }
+        sqlSession.commit();
         sqlSession.close();
     }
 }
