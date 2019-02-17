@@ -113,7 +113,7 @@ public class TestMybatis {
         }
         sqlSession.close();
     }
-    @Test
+    //@Test
     public void  testOne2Many() throws IOException {
         InputStream inputStream = Resources.getResourceAsStream(resource);
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
@@ -121,13 +121,30 @@ public class TestMybatis {
         
         List<Category> categories = sqlSession.selectList("one2ManyListCategory");
         for (Category category : categories) {
-            System.out.println(category.getName());
+            System.out.println(category);
             List<Product> products = category.getProducts();
             for (Product product : products) {
-                System.out.println(product.getName());
+                System.out.println(product);
             }
             System.out.println("----------------------------");
         }
+        sqlSession.commit();
+        sqlSession.close();
+    }
+    @Test
+    public void testMang2One() throws IOException {
+        InputStream inputStream = Resources.getResourceAsStream(resource);
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        
+        List<Product> products = sqlSession.selectList("listProduct2");
+        for (Product product : products) {
+            Category category = product.getCategory();
+            System.out.println(product);
+            System.out.println(category);
+            System.out.println("---------------------------------");
+        }
+        
         sqlSession.commit();
         sqlSession.close();
     }

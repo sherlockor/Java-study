@@ -7,4 +7,17 @@
     <select id="listProduct" resultType="Product">
         select * from product_
     </select>
+    <resultMap type="Product" id="productBean">
+        <id column="pid" property="id" />
+        <result column="pname" property="name"/>
+        <result column="price" property="price" />
+        <association property="category" javaType="Category">
+            <id column="cid" property="id"/>
+            <result column="cname" property="name"/>
+        </association>
+    </resultMap>
+    <select id="listProduct2" resultMap="productBean">
+        select p.id 'pid', p.name 'pname', p.price 'price', c.id 'cid', c.name 'cname' 
+        from product_ p inner join category_ c on p.cid=c.id; 
+    </select>
 </mapper>

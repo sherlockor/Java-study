@@ -36,7 +36,6 @@
         </collection>
     </resultMap>
     <select id="one2ManyListCategory" resultMap="categoryBean">
-        select c.*, p.*, c.id 'cid', p.id 'pid', c.name 'cname', p.name 'pname' from category_ c 
-        left join product_ p on c.id = p.cid
+        select c.id 'cid', c.name 'cname', p.id 'id', p.name 'pname', p.price 'price' from category_ c inner join product_ p on c.id=p.cid;
     </select>
 </mapper>
