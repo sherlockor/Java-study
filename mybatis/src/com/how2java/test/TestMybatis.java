@@ -12,10 +12,12 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.Test;
 import com.how2java.pojo.Category;
+import com.how2java.pojo.Order;
+import com.how2java.pojo.OrderMapper;
 import com.how2java.pojo.Product;
 
 public class TestMybatis {
-    String resource = "mybatis-config.xml";
+    String resource = "config.xml";
     //@Test
     public void testCategory() throws IOException {
         InputStream inputStream = Resources.getResourceAsStream(resource);
@@ -131,8 +133,8 @@ public class TestMybatis {
         sqlSession.commit();
         sqlSession.close();
     }
-    @Test
-    public void testMang2One() throws IOException {
+    //@Test
+    public void testMany2One() throws IOException {
         InputStream inputStream = Resources.getResourceAsStream(resource);
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
         SqlSession sqlSession = sqlSessionFactory.openSession();
@@ -148,4 +150,50 @@ public class TestMybatis {
         sqlSession.commit();
         sqlSession.close();
     }
+    @Test
+    //查询所有有product的订单
+    public void queryOrderByProduct() throws IOException {
+        InputStream inputStream = Resources.getResourceAsStream(resource);
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        
+        List<Order> orders = sqlSession.selectList("listOrder");
+        
+        for (Order order : orders) {
+            System.out.println("Order id:" + order.getId());
+            List<OrderMapper> orderMappers = order.getOrderMappers();
+            for (OrderMapper orderMapper : orderMappers) {
+                System.out.println("product id:" + orderMapper.getProduct().getId());
+            }
+            System.out.println("-------------------------------------");
+        }
+        
+        sqlSession.commit();
+        sqlSession.close();
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

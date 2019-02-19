@@ -21,5 +21,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
     <mappers>
         <mapper resource="com/how2java/pojo/Category.xml"/>
         <mapper resource="com/how2java/pojo/Product.xml"/>
+        <mapper resource="com/how2java/pojo/Order111.xml"/>
+        <mapper resource="com/how2java/pojo/OrderMapper.xml"/>
     </mappers>
 </configuration>

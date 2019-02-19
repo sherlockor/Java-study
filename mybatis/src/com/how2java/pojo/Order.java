@@ -5,7 +5,7 @@ import java.util.List;
 public class Order {
     private int id;
     private String code;
-    private List<Product> products;
+    private List<OrderMapper> orderMappers;
     
     public int getId() {
         return id;
@@ -19,10 +19,10 @@ public class Order {
     public void setCode(String code) {
         this.code = code;
     }
-    public List<Product> getProducts() {
-        return products;
+    public List<OrderMapper> getOrderMappers() {
+        return orderMappers;
     }
-    public void setProducts(List<Product> products) {
-        this.products = products;
+    public void setOrderMappers(List<OrderMapper> orderMappers) {
+        this.orderMappers = orderMappers;
     }
 }

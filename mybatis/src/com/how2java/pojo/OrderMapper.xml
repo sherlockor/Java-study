@@ -3,5 +3,9 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.how2java.pojo">
-
+    <resultMap type="OrderMapper" id="orderMapperProduct">
+        <id column="mapper_id" property="id"/>
+        <result column="mapper_number" property="number"/>
+        
+    </resultMap>
 </mapper>
