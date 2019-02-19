@@ -115,7 +115,7 @@ public class TestMybatis {
         }
         sqlSession.close();
     }
-    //@Test
+    @Test
     public void  testOne2Many() throws IOException {
         InputStream inputStream = Resources.getResourceAsStream(resource);
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
