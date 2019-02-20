@@ -13,7 +13,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.Test;
 import com.how2java.pojo.Category;
 import com.how2java.pojo.Order;
-import com.how2java.pojo.OrderMapper;
+import com.how2java.pojo.OrderItem;
 import com.how2java.pojo.Product;
 
 public class TestMybatis {
@@ -115,7 +115,7 @@ public class TestMybatis {
         }
         sqlSession.close();
     }
-    @Test
+    //@Test
     public void  testOne2Many() throws IOException {
         InputStream inputStream = Resources.getResourceAsStream(resource);
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
@@ -150,7 +150,7 @@ public class TestMybatis {
         sqlSession.commit();
         sqlSession.close();
     }
-    @Test
+    //@Test
     //查询所有有product的订单
     public void queryOrderByProduct() throws IOException {
         InputStream inputStream = Resources.getResourceAsStream(resource);
@@ -161,8 +161,8 @@ public class TestMybatis {
         
         for (Order order : orders) {
             System.out.println("Order id:" + order.getId());
-            List<OrderMapper> orderMappers = order.getOrderMappers();
-            for (OrderMapper orderMapper : orderMappers) {
+            List<OrderItem> orderMappers = order.getOrderItems();
+            for (OrderItem orderMapper : orderMappers) {
                 System.out.println("product id:" + orderMapper.getProduct().getId());
             }
             System.out.println("-------------------------------------");

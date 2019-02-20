@@ -7,7 +7,7 @@
     <resultMap type="order" id="orderBean">
         <id column="order_id" property="id"/>
         <result column="order_code" property="code" />
-        <collection property="orderMappers" ofType="OrderMapper" javaType="list">
+        <collection property="orderItems" ofType="OrderItem" javaType="list">
             <id column="order_mapper_id" property="id"/>
             <result column="order_mapper_number" property="number" />
             <association property="product" javaType="Product">

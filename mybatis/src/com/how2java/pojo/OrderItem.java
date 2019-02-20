@@ -1,6 +1,6 @@
 package com.how2java.pojo;
 
-public class OrderMapper {
+public class OrderItem {
     private int id;
     private int number;
     private Order order;
