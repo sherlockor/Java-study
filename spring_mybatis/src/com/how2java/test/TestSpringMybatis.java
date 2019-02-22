@@ -17,16 +17,23 @@ public class TestSpringMybatis {
     @Autowired
     private CategoryMapper categoryMapper;
     
-    @Test
+    //@Test
     public void testAdd() {
         categoryMapper.addCategory("spring_mybatis test");
     }
     
-    @Test
+    //@Test
     public void testQuery() {
         List<Category> categories = categoryMapper.getCategoriesByName("spring");
         for (Category category : categories) {
             System.out.println(category);
         }
+    }
+    @Test
+    public void testUpdate() {
+        Category category = new Category();
+        category.setId(1);
+        category.setName("spring mybatis update");
+        categoryMapper.updateCategory(category);
     }
 }

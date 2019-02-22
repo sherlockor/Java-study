@@ -13,4 +13,6 @@ public interface CategoryMapper {
     
     @Select("select * from category_ where name like concat('%', #{name}, '%')")
     public List<Category> getCategoriesByName(String name);
+    
+    public void updateCategory(Category category);
 }
