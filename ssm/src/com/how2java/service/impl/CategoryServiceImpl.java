@@ -25,4 +25,10 @@ public class CategoryServiceImpl implements CategoryService{
         // TODO Auto-generated method stub
         return categoryMapper.getCategoriesByName(name);
     }
+
+    @Override
+    public List<Category> queryPage(int start, int count) {
+        // TODO Auto-generated method stub
+        return categoryMapper.getCategoriesPage(start, count);
+    }
 }

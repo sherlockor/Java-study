@@ -8,4 +8,6 @@ public interface CategoryMapper {
     public int addCategory(String name);
     
     public List<Category> getCategoriesByName(String name);
+    
+    public List<Category> getCategoriesPage(int start, int count);
 }

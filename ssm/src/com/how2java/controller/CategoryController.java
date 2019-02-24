@@ -28,12 +28,26 @@ public class CategoryController {
         categoryService.addCategory(name);
         return "index";
     }
+    @RequestMapping("query")
+    public String query() {
+        return "query";
+    }
     @RequestMapping("queryCategory")
     public String queryCategory(String name) {
         List<Category> categories = categoryService.queryCategory(name);
         for (Category category : categories) {
             System.out.println(category);
         }
-        return "index";
+        return "query";
+    }
+    
+    @RequestMapping("queryCategoryPage")
+    public String queryCategoryPage(int start, int count) {
+        System.out.println("queryCategoryPage:" + start + "," + count);
+        List<Category> categories = categoryService.queryPage(start, count);
+        for (Category category : categories) {
+            System.out.println(category);
+        }
+        return "query";
     }
 }

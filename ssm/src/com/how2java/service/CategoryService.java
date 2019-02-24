@@ -8,4 +8,6 @@ public interface CategoryService {
     public void addCategory(String name);
     
     public List<Category> queryCategory(String name);
+    
+    public List<Category> queryPage(int start, int count);
 }

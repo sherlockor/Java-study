@@ -7,15 +7,19 @@
 <body>
     <form action="queryCategory" method="get">
         <label>Name:
-            <input type="text" value="name">
+            <input type="text" name="name">
         </label>
         <input type="submit" value="query">
     </form>
     <br>
-    <form action="queryCategory" method="get">
-        <label>Name:
-            <input type="text" value="name">
+    <form action="queryCategoryPage" method="post">
+        <label>Satrt:
+            <input type="number" name="start">
         </label>
+        <label>Count:
+            <input type="number" name="count">
+        </label>
+        <input type="submit" value="query page">
     </form>
 </body>
 </html>

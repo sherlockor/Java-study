@@ -11,4 +11,8 @@
     <select id="getCategoriesByName" parameterType="string" resultType="Category">
         select * from category_ where name like concat('%', #{name}, '%') 
     </select>
+    
+    <select id="getCategoriesPage" parameterType="int" resultType="Category">
+        select * from category_ limit #{0}, #{1}
+    </select>
 </mapper>
