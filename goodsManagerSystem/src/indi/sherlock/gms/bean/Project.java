@@ -1,9 +1,12 @@
 package indi.sherlock.gms.bean;
 
+import java.util.List;
+
 public class Project {
     private int id;
     private String name;
     private String description;
+    private List<User> listUsers;
     
     public int getId() {
         return id;
@@ -22,5 +25,11 @@ public class Project {
     }
     public void setDescription(String description) {
         this.description = description;
+    }
+    public List<User> getListUsers() {
+        return listUsers;
+    }
+    public void setListUsers(List<User> listUsers) {
+        this.listUsers = listUsers;
     }
 }
