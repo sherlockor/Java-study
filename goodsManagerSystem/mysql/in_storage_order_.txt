@@ -1,0 +1,12 @@
+CREATE TABLE in_storage_order_(
+	id INT(11) NOT NULL AUTO_INCREMENT,
+	good_id INT(11),
+	quantity INT(11),
+	remark VARCHAR(256) DEFAULT NULL,
+	applicant INT(11),
+	acceptor INT(11),
+	application_time TIMESTAMP,
+	accept_time TIMESTAMP,
+	state int(1) DEFAULT 0,
+	PRIMARY KEY(id)
+)ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;

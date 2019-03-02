@@ -1,0 +1,16 @@
+CREATE TABLE request_order_(
+	id INT(11) NOT NULL AUTO_INCREMENT,
+	good_id INT(11),
+	quantity INT(11),
+	project_id INT(11),
+	application_department_id INT(11),
+	accept_deaprtment_id INT(11),
+	application_staff_id INT(11),
+	accept_staff_id INT(11),
+	application_time TIMESTAMP,
+	accept_time TIMESTAMP,
+	use_for VARCHAR(256) DEFAULT NULL,
+	remark VARCHAR(256) DEFAULT NULL,
+	state int(1) DEFAULT 0,
+	PRIMARY KEY(id)
+)ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
