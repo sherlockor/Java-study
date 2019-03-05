@@ -20,10 +20,16 @@ public class TestDepartment {
     //@Test
     public void addDepartment() {
         Department department = new Department();
-        department.setName("test add department2");
+        department.setName("test add department21");
         //department.setDescription("1111");
+        try {
+            int result = departmentMapper.addDepartment(department);
+            System.out.println(result);
+        } catch (Exception e) {
+            // TODO: handle exception
+            System.out.println(e.getLocalizedMessage());
+        }
         
-        departmentMapper.addDepartment(department);
     }
     //@Test
     public void deleteDepartmentByName() {
@@ -33,9 +39,17 @@ public class TestDepartment {
     public void testDeleteDepartmentById() {
         departmentMapper.deleteDepartmentById(4);
     }
-    //@Test
+    @Test
     public void testGetDepartmentByName() {
-        List<Department> depatDepartments = departmentMapper.getDepartmentsByName("add");
+        List<Department> depatDepartments = departmentMapper.getDepartmentsByName("test");
+        
+        for (Department department : depatDepartments) {
+            System.out.println(department);
+        }
+    }
+    //@Test
+    public void testGetDepartmentLikeName() {
+        List<Department> depatDepartments = departmentMapper.getDepartmentsLikeName("add");
         
         for (Department department : depatDepartments) {
             System.out.println(department);

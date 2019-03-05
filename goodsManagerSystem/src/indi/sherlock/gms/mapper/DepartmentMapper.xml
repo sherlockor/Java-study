@@ -14,8 +14,10 @@
     <delete id="deleteDepartmentById" parameterType="int">
         DELETE FROM department_ WHERE id=#{id}
     </delete>
-    
     <select id="getDepartmentsByName" parameterType="string" resultType="Department">
+        SELECT d.id, d.name, d.description FROM department_ d WHERE name=#{name}
+    </select>
+    <select id="getDepartmentsLikeName" parameterType="string" resultType="Department">
         SELECT d.id, d.name, d.description FROM department_ d WHERE name LIKE CONCAT('%',#{name},'%')
     </select>
     <select id="getDepartmentById" parameterType="int" resultType="Department">

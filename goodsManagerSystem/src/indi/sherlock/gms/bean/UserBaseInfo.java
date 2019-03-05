@@ -5,6 +5,7 @@ public class UserBaseInfo {
     private String realName;
     private Department department;
     private int gender;
+    private User user;
     
     public int getId() {
         return id;
@@ -29,5 +30,11 @@ public class UserBaseInfo {
     }
     public void setGender(int gender) {
         this.gender = gender;
+    }
+    public User getUser() {
+        return user;
+    }
+    public void setUser(User user) {
+        this.user = user;
     }
 }
