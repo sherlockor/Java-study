@@ -9,6 +9,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import indi.sherlock.gms.bean.Department;
 import indi.sherlock.gms.bean.User;
 import indi.sherlock.gms.bean.UserBaseInfo;
+import indi.sherlock.gms.bean.UserContactInfo;
 import indi.sherlock.gms.mapper.DepartmentMapper;
 import indi.sherlock.gms.mapper.UserBaseInfoMapper;
 import indi.sherlock.gms.mapper.UserMapper;
@@ -22,7 +23,8 @@ public class TestUser {
     private DepartmentMapper departmentMapper;
     @Autowired
     private UserBaseInfoMapper userBaseInfoMapper;
-    
+    @Autowired
+    private UserContactInfo userContactInfo;
     
     @Test
     public void testAddUser() {
@@ -41,6 +43,13 @@ public class TestUser {
         userBaseInfo.setGender(1);
         userBaseInfo.setUser(user);
         userBaseInfoMapper.addUserBaseInfo(userBaseInfo);
+        
+        UserContactInfo userContectInfo = new UserContactInfo();
+        userContectInfo.setAddress("suzhou");
+        userContectInfo.setMailAddress("123@qq.com");
+        userContectInfo.setPhoneNumber("1234567");
+        userContectInfo.setUser(user);
+        
     }
 
 }

@@ -39,7 +39,7 @@ public class TestDepartment {
     public void testDeleteDepartmentById() {
         departmentMapper.deleteDepartmentById(4);
     }
-    @Test
+    //@Test
     public void testGetDepartmentByName() {
         List<Department> depatDepartments = departmentMapper.getDepartmentsByName("test");
         

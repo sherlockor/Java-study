@@ -7,7 +7,7 @@ public class User {
     private String name;
     private String password;
     private UserBaseInfo userBaseInfo;
-    private UserContectInfo userContectInfo;
+    private UserContactInfo userContectInfo;
     private List<Project> listProjects;
     
     public int getId() {
@@ -34,9 +34,9 @@ public class User {
     public void setUserBaseInfo(UserBaseInfo userBaseInfo) {
         this.userBaseInfo = userBaseInfo;
     }
-    public UserContectInfo getUserContectInfo() {
+    public UserContactInfo getUserContectInfo() {
         return userContectInfo;
-    }public void setUserContectInfo(UserContectInfo userContectInfo) {
+    }public void setUserContectInfo(UserContactInfo userContectInfo) {
         this.userContectInfo = userContectInfo;
     }
     public List<Project> getListProjects() {
