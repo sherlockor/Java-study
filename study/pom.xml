@@ -5,7 +5,8 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>study</name>
   <description>study-code</description>
-
+  <packaging>war</packaging>
+  
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -15,6 +16,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <scope>provided</scope>
         </dependency>
         <dependency>
               <groupId>junit</groupId>
@@ -22,7 +24,12 @@
               <version>3.8.1</version>
               <scope>test</scope>
         </dependency>
-    </dependencies>
+        <dependency>
+        	<groupId>org.springframework.boot</groupId>
+        	<artifactId>spring-boot-starter-tomcat</artifactId>
+        	<scope>provided</scope>
+        </dependency>
+	</dependencies>
     <properties>
         <java.version>1.8</java.version>
     </properties>
